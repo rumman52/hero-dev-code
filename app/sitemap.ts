@@ -1,2 +1,16 @@
 import type { MetadataRoute } from 'next';
-export default function sitemap(): MetadataRoute.Sitemap { return [{ url:'https://example.com', lastModified:new Date(), changeFrequency:'monthly', priority:1 }]; }
+
+const siteUrl = 'https://rumman52.github.io/hero-dev-code/';
+
+export const dynamic = 'force-static';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: siteUrl,
+      lastModified: new Date('2026-07-24'),
+      changeFrequency: 'monthly',
+      priority: 1,
+    },
+  ];
+}
