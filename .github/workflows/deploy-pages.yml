@@ -43,6 +43,8 @@ jobs:
         run: |
           test -f out/index.html
           test -f out/404.html
+          test -f out/robots.txt
+          test -f out/sitemap.xml
           grep -q '/hero-dev-code/_next/' out/index.html
           ! find out -maxdepth 1 \( -name "*.html" -o -name "robots.txt" -o -name "sitemap.xml" \) -print0 | xargs -0 grep -n "example.com"
 
