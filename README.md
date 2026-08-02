@@ -1,31 +1,22 @@
 # Hero Dev Code Portfolio
 
-Static Next.js portfolio for Md Rumman Ali, exported for GitHub Pages at:
+Next.js portfolio for Md Rumman Ali, deployed on Vercel at:
 
-https://rumman52.github.io/hero-dev-code/
+https://hero-dev-code.vercel.app/
 
 ## Runtime
 
-- Node.js 20 is required for CI/CD and recommended locally.
-- npm is the package manager. Use the committed `package-lock.json` for deterministic installs.
+- Node.js 24 is used locally, in CI, and on Vercel.
+- npm is the package manager. Clean environments should install the committed lockfile with `npm ci`.
 
-## Local setup
+## Local development
 
 ```bash
-npm install
-# or, for a clean lockfile-based install:
 npm ci
-```
-
-## Development
-
-```bash
 npm run dev
 ```
 
-The local development build uses no base path. The GitHub Actions build automatically enables the `/hero-dev-code` base path through `GITHUB_ACTIONS=true`.
-
-## Verification commands
+## Verification
 
 ```bash
 npm run lint
@@ -33,16 +24,6 @@ npm run typecheck
 npm run build
 ```
 
-For a local simulation of the GitHub Pages export, run:
+## Deployment
 
-```bash
-GITHUB_ACTIONS=true npm run build
-```
-
-The exported site is written to `out/` and is hosted under `/hero-dev-code/` in production.
-
-## GitHub Pages deployment
-
-The repository deploys with `.github/workflows/deploy-pages.yml`. In the repository settings, GitHub Pages must use **GitHub Actions** as the publishing source. Do not select a branch or the `docs/` folder as the Pages source.
-
-If a deployment fails, open the repository **Actions** tab, select the failed **Deploy GitHub Pages** workflow run, and inspect the first failed step in the `build` or `deploy` job logs.
+Vercel builds the `main` branch as a native Next.js application from the repository root. Use the Next.js framework preset, `npm ci` as the install command, and `npm run build` as the build command. Leave the output directory on its automatic setting; the application does not require environment variables.
